@@ -31,8 +31,8 @@ function ApiCaller({ apiKey, githubUrl, csvData }) {
       const postResponseData = await postResponse.json();
       const requestId = postResponseData.response.id;
 
-      // Delay for 4 seconds before making the GET request
-      await new Promise(resolve => setTimeout(resolve, 4000));
+      // Delay for 5 seconds before making the GET request
+      await new Promise(resolve => setTimeout(resolve, 5000));
 
       // GET request
       const getResponse = await fetch(`${corsProxy}https://api.yextapis.com/v2/accounts/me/resourcesapplyrequests/${requestId}?api_key=${apiKey}&v=20230824`);
