@@ -1,12 +1,14 @@
-
-
-  /* ApiKeyInput.css */
-
-.api-key-input {
-    width: 80%;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
+/* Add these styles to your CSS */
+.api-caller-container {
+    width: auto; /* Adjust the width as needed */
+    padding: 20px; /* Add padding for spacing */
   }
   
+  .api-status-list-container {
+    max-height: 500px; /* Set the maximum height for the scrollable box */
+    overflow-y: auto; /* Add vertical scroll if needed */
+    margin: 20px auto; /* Center horizontally and add margin from the progress section */
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+    

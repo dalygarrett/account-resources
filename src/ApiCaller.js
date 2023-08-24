@@ -50,15 +50,17 @@ function ApiCaller({ apiKey, githubUrl, csvData }) {
   };
 
   return (
-    <div>
+    <div className="api-caller-container"> {/* Apply styling to this container */}
       <button onClick={makeApiCalls}>Make API Calls</button>
       {progress > 0 && progress < 100 && <div>Progress: {progress.toFixed(2)}%</div>}
-      <div>
-        {statusResponses.map((response, index) => (
-          <div key={index}>
-            Account ID: {response.accountId}, Status: {response.status}
-          </div>
-        ))}
+      <div className="api-status-list-container"> {/* Apply styling to this container */}
+        <div className="api-status-list">
+          {statusResponses.map((response, index) => (
+            <div key={index}>
+              Account ID: {response.accountId}, Status: {response.status}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );
