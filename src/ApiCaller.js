@@ -14,7 +14,7 @@ function ApiCaller({ apiKey, githubUrl, csvData }) {
       const corsProxy = 'https://corsproxy.io/?';
 
       // POST request
-      const postResponse = await fetch(`${corsProxy}https://sbx-api.yextapis.com/v2/accounts/me/resourcesapplyrequests?api_key=${apiKey}&v=20230824`, {
+      const postResponse = await fetch(`${corsProxy}https://api.yextapis.com/v2/accounts/me/resourcesapplyrequests?api_key=${apiKey}&v=20230824`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -35,7 +35,7 @@ function ApiCaller({ apiKey, githubUrl, csvData }) {
       await new Promise(resolve => setTimeout(resolve, 4000));
 
       // GET request
-      const getResponse = await fetch(`${corsProxy}https://sbx-api.yextapis.com/v2/accounts/me/resourcesapplyrequests/${requestId}?api_key=${apiKey}&v=20230824`);
+      const getResponse = await fetch(`${corsProxy}https://api.yextapis.com/v2/accounts/me/resourcesapplyrequests/${requestId}?api_key=${apiKey}&v=20230824`);
       const getResponseData = await getResponse.json();
 
       const response = { accountId, status: getResponseData.response.status };
