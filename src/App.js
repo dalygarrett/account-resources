@@ -1,23 +1,38 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+import ApiKeyInput from './ApiKeyInput';
+import CsvUploader from './CsvUploader';
+import ApiCaller from './ApiCaller';
+import GithubUrlInput from './GithubUrlInput';
 import './App.css';
 
 function App() {
+  const [apiKey, setApiKey] = useState('');
+  const [githubUrl, setGithubUrl] = useState('');
+  const [csvData, setCsvData] = useState('');
+
+  const handleApiKeySubmit = (key) => {
+    setApiKey(key);
+  };
+
+  const handleGithubUrlSubmit = (url) => {
+    setGithubUrl(url);
+  };
+
+  const handleCsvUpload = (data) => {
+    setCsvData(data);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="app-container">
+      <div className="centered-content">
+        <ApiKeyInput onApiKeySubmit={handleApiKeySubmit} />
+        <div className="vertical-spacing" />
+        <GithubUrlInput onGithubUrlSubmit={handleGithubUrlSubmit} />
+        <div className="vertical-spacing" />
+        <CsvUploader onCsvUpload={handleCsvUpload} />
+        <div className="vertical-spacing" />
+        <ApiCaller apiKey={apiKey} githubUrl={githubUrl} csvData={csvData} />
+      </div>
     </div>
   );
 }
